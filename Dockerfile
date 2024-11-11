@@ -1,19 +1,14 @@
-# stable official Java runtime base image
+#Pull base image from Docker Hub
 FROM openjdk:17-jdk-alpine
 
-# metadata
-LABEL maintainer="your-email@example.com"
-LABEL version="1.0"
-LABEL description="A simple Java application"
-
-# working directory
+# Create a working directory in the container where the application code will be kept
 WORKDIR /app
 
-# Copy source code into the container
+#Copy the app to container
 COPY src/Main.java /app/Main.java
 
-# Compile the Java code
+# Compile the application
 RUN javac Main.java
 
-# Run the Java application when the container starts
-CMD ["java", "Main"]
+# Run the application
+CMD ["java","Main"]
